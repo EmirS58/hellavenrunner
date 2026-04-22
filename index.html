@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Araf Runner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="gameCanvas"></canvas>
+
+    <!-- Saldiri Butonu - Sag alt kose -->
+    <button id="attackBtn" class="attack-round-btn hidden" ontouchstart="doAttack(); return false;" onclick="doAttack()">
+        &#9876;
+    </button>
+
+    <!-- Choice Panel -->
+    <div id="choicePanel" class="choice-panel hidden">
+        <h2>SECIM ZAMANI</h2>
+        <button id="choiceUp" onclick="makeChoice(true)"><span id="upLabel">CENNETE GIT</span></button>
+        <button id="choiceDown" onclick="makeChoice(false)"><span id="downLabel">CEHENNEME GIT</span></button>
+        <p class="choice-hint">Devam etmek icin bekle...</p>
+    </div>
+
+    <!-- Game Over -->
+    <div id="gameOver" class="overlay hidden">
+        <h2>OYUN BITTI</h2>
+        <p id="finalScore"></p>
+        <p id="finalRealm"></p>
+        <button onclick="location.reload()">Tekrar Oyna</button>
+    </div>
+
+    <!-- Start Screen -->
+    <div id="startScreen" class="overlay">
+        <h1>ARAF RUNNER</h1>
+        <p>Arafta basliyorsun. Secimlerinle yolunu belirle.</p>
+        <div class="start-info">
+            <div class="info-box heaven-box"><h3>CENNET</h3><p>Bulutlar ustunde zipla</p><p>Cok hizli, temiz yol</p><p>Max 7 kat</p></div>
+            <div class="info-box hell-box"><h3>CEHENNEM</h3><p>Yaratiklara saldir</p><p>Dikenlerden kac</p><p>Max 7 kat</p></div>
+        </div>
+        <p class="control-hint">Ekrana dokun: Zipla<br>Sag alt buton: Saldir (Cehennemde)</p>
+        <button onclick="initGame()">BASLA</button>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

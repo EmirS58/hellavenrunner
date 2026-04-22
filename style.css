@@ -1,0 +1,195 @@
+﻿* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background: #000;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    touch-action: none;
+}
+
+#gameCanvas {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    touch-action: none;
+}
+
+/* ===== OVERLAYS ===== */
+.overlay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,0.92);
+    border: 3px solid #FFD700;
+    border-radius: 20px;
+    padding: 30px 25px;
+    text-align: center;
+    color: white;
+    z-index: 100;
+    width: 90%;
+    max-width: 480px;
+    box-shadow: 0 0 40px rgba(255,215,0,0.3);
+}
+
+.overlay h1 {
+    font-size: 2em;
+    color: #FFD700;
+    margin-bottom: 15px;
+    text-shadow: 0 0 20px rgba(255,215,0,0.5);
+}
+
+.overlay h2 {
+    font-size: 1.8em;
+    color: #FF4444;
+    margin-bottom: 15px;
+}
+
+.overlay p {
+    font-size: 1em;
+    margin: 8px 0;
+    color: #ddd;
+}
+
+.overlay button {
+    margin-top: 20px;
+    padding: 16px 50px;
+    font-size: 1.3em;
+    font-weight: bold;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.15s;
+    box-shadow: 0 5px 20px rgba(102,126,234,0.4);
+}
+
+.overlay button:active { transform: scale(0.95); }
+
+.start-info {
+    display: flex;
+    gap: 15px;
+    margin: 20px 0;
+    justify-content: center;
+}
+
+.info-box {
+    flex: 1;
+    padding: 15px 10px;
+    border-radius: 12px;
+    font-size: 0.85em;
+}
+
+.info-box h3 {
+    font-size: 1.1em;
+    margin-bottom: 8px;
+}
+
+.info-box p { margin: 4px 0; color: #ccc; }
+
+.heaven-box {
+    background: rgba(135,206,235,0.2);
+    border: 2px solid #87CEEB;
+}
+
+.heaven-box h3 { color: #87CEEB; }
+
+.hell-box {
+    background: rgba(255,69,0,0.2);
+    border: 2px solid #FF4500;
+}
+
+.hell-box h3 { color: #FF4500; }
+
+.control-hint {
+    font-size: 0.85em !important;
+    color: #aaa !important;
+    margin-top: 10px !important;
+    line-height: 1.6;
+}
+
+/* ===== CHOICE PANEL ===== */
+.choice-panel {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.9);
+    border-top: 3px solid #FFD700;
+    padding: 20px;
+    text-align: center;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.choice-panel h2 {
+    color: #FFD700;
+    font-size: 1.4em;
+    margin: 0;
+}
+
+.choice-panel button {
+    width: 90%;
+    max-width: 400px;
+    padding: 18px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: transform 0.15s;
+}
+
+.choice-panel button:active { transform: scale(0.97); }
+
+#choiceUp {
+    background: linear-gradient(135deg, #a8edea, #87CEEB);
+    color: #1a3a5c;
+    border: 2px solid #87CEEB;
+}
+
+#choiceDown {
+    background: linear-gradient(135deg, #ff9a9e, #FF4500);
+    color: white;
+    border: 2px solid #FF4500;
+}
+
+.choice-hint {
+    color: #888;
+    font-size: 0.85em;
+    margin: 0;
+}
+
+.hidden { display: none !important; }
+
+/* ===== SALDIRI BUTONU ===== */
+.attack-round-btn {
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #ff4400, #8B0000);
+    border: 4px solid #FF6600;
+    color: white;
+    font-size: 2.2em;
+    cursor: pointer;
+    z-index: 50;
+    box-shadow: 0 0 25px rgba(255, 68, 0, 0.7), 0 5px 15px rgba(0,0,0,0.5);
+    transition: transform 0.1s, box-shadow 0.1s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+.attack-round-btn:active {
+    transform: scale(0.88);
+    box-shadow: 0 0 15px rgba(255, 68, 0, 0.5);
+}
